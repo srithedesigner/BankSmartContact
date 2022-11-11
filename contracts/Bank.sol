@@ -14,9 +14,9 @@ contract Bank {
     return _balances[account];
   }
 
-  function withdraw(uint amount) public payable{
-	require(amount <= _balances[msg.sender]);
-	_balances[msg.sender] -= amount;
+  function withdraw() public payable{
+	require(msg.value <= _balances[msg.sender]);
+	_balances[msg.sender] -= msg.value;
 
   }
 }
